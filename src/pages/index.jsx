@@ -22,6 +22,10 @@ function Homepage() {
       .then((json) => setExternalPposts(json));
   }, []);
 
+  useEffect(() => {
+    console.log("Ada post baru");
+  }, [posts])
+
   return (
     <>
       <h1>Simple Blog</h1>
