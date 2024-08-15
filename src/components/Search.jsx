@@ -4,15 +4,25 @@ import PropTypes from 'prop-types';
 function Search(props) {
   const [search, setSearch] = useState('');
 
-  const onSearchChange = (event) => {
-    setSearch(event.target.value);
-    props.onSearchChange(event.target.value);
+  const onSearchChange = () => {
+    props.onSearchChange(search);
+  };
+
+  const searchKeydown = (e) => {
+    if (e.key === 'Enter') {
+      onSearchChange();
+    }
   };
 
   return (
     <>
       <div>
-        Cari Article : <input onChange={onSearchChange}></input>
+        Cari Article :{' '}
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={searchKeydown}
+        ></input>
+        <button onClick={onSearchChange}>Cari</button>
       </div>
       <small>
         Ditemukan {props.totalPosts} data dengan pencarian kata {search}
