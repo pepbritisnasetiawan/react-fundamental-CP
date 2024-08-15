@@ -1,18 +1,14 @@
-export default function Article() {
-  const name = 'Febrian';
-  const titiles = ['Tutorial Reactjs', 'Tutorial Nextjs', 'Tutorial Nodejs'];
-
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
+export default function Article(props) {
   return (
     <>
-      <div>{name}</div>
-      <div>{titiles.map((title) => {
-        return (
-          <>
-            <div>{title}</div>
-            <div>{title}</div>
-          </>
-        );
-      })}</div>
+      <div>{props.name}</div>
+      <div>
+        {props.titles.map((title) => {
+          return <div>{title}</div>
+        })}
+      </div>
     </>
   );
 }
