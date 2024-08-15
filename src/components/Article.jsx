@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
-import { GlobalContext } from "../contex";
+import { useContext } from 'react';
+import { GlobalContext } from '../contex';
 const ArticleStatus = ({ isNew }) => {
   return isNew && <span>-- Baru!!</span>;
 };
 
-export default function Article(props) {
-  const user = useContext(GlobalContext)
+function Article(props) {
+  const user = useContext(GlobalContext);
   return (
     <>
       <h3>{props.title}</h3>
@@ -20,3 +20,5 @@ export default function Article(props) {
     </>
   );
 }
+
+export default Article;
