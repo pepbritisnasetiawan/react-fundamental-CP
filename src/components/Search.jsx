@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function Search(props) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const onSearchChange = (event) => {
     setSearch(event.target.value);
@@ -14,13 +14,16 @@ function Search(props) {
       <div>
         Cari Article : <input onChange={onSearchChange}></input>
       </div>
-      <small>Ditemukan 0 data dengan pencarian kata {search}</small>
+      <small>
+        Ditemukan {props.totalPosts} data dengan pencarian kata {search}
+      </small>
     </>
   );
 }
 
 Search.propTypes = {
   onSearchChange: PropTypes.func.isRequired,
+  totalPosts: PropTypes.number.isRequired,
 };
 
 export default Search;
