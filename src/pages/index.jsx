@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Article from '../components/Article';
 import Search from '../components/Search';
 import postsData from '../posts.json';
@@ -14,6 +14,14 @@ function Homepage() {
     setPosts(filteredPosts);
     setTotalPosts(filteredPosts.length);
   };
+
+  useEffect(() => {
+    console.log('render');
+
+    return () => {
+      console.log('cleanup');
+    };
+  }, [posts]);
 
   return (
     <>
